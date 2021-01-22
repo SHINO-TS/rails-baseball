@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20210115-6920-1die3lc
-sitelibdir = $(DESTDIR)./.gem.20210115-6920-1die3lc
+sitearchdir = $(DESTDIR)./.gem.20210122-2380-13hv7lr
+sitelibdir = $(DESTDIR)./.gem.20210122-2380-13hv7lr
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -86,7 +86,7 @@ CCDLFLAGS =
 CFLAGS   = $(CCDLFLAGS) -O3 -fno-fast-math -fstack-protector-strong -fstack-protector-strong -D_FORTIFY_SOURCE=2 $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = -D_FILE_OFFSET_BITS=64
-CPPFLAGS =  -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT $(DEFS) $(cppflags)
+CPPFLAGS = -DHAVE_OPENSSL_BIO_H -DHAVE_DTLS_METHOD -DHAVE_TLS_SERVER_METHOD -DHAVE_SSL_CTX_SET_MIN_PROTO_VERSION -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT $(DEFS) $(cppflags)
 CXXFLAGS = $(CCDLFLAGS) -march=x86-64 -mtune=generic -O2 -pipe $(ARCH_FLAG)
 ldflags  = -L. -pipe -s -fstack-protector-strong -fstack-protector-strong -l:libssp.a
 dldflags = -pipe -s -fstack-protector-strong -Wl,--enable-auto-image-base,--enable-auto-import $(DEFFILE) 
@@ -136,7 +136,7 @@ extout =
 extout_prefix = 
 target_prefix = /puma
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED) -lssp  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  
+LIBS = $(LIBRUBYARG_SHARED) -lssl -lcrypto -lssp  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  
 ORIG_SRCS = http11_parser.c mini_ssl.c puma_http11.c
 SRCS = $(ORIG_SRCS) 
 OBJS = http11_parser.o mini_ssl.o puma_http11.o
