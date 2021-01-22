@@ -7,7 +7,7 @@ class CreateEntries < ActiveRecord::Migration[6.1]
       t.datetime :posted_at, null: false              # 投稿日
       t.string :status, null: false, default: "draft" # 状態
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

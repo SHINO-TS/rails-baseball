@@ -26,7 +26,7 @@ class MembersController < ApplicationController
   end
   #会員の新規登録
   def create
-    @member = Member.new(params[:member])
+    @member = Member.new(member_params)
     if @member.save
       redirect_to @member, notice: "会員を登録しました。"
     else
@@ -35,7 +35,7 @@ class MembersController < ApplicationController
   end
   def update
     @member = Member.find(params[:id])
-    @member.assign_attributes(params[:member])
+    @member.assign_attributes(member_params)
     if @member.save
       redirect_to @member, notice: "会員情報を更新しました。"
     else
