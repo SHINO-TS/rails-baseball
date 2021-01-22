@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resource:session, only:[:create, :destroy]
   resource :account,only:[:show,:edit,:update]
   resource :password,only:[:show,:edit,:update]
+  resources :articles
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
