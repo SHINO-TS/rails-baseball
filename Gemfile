@@ -13,14 +13,13 @@ gem 'sass-rails'
 gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+gem 'webpacker'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-gem 'webpacker'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
